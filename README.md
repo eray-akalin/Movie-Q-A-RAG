@@ -10,14 +10,6 @@ A from-scratch Retrieval-Augmented Generation (RAG) pipeline for answering natur
 4. **Generation** — a small local instruction-tuned model (`Qwen/Qwen2.5-1.5B-Instruct`) generates a grounded answer from the retrieved context, with an explicit refusal path when the requested movie isn't in the corpus (avoids confidently hallucinating about movies like *Oppenheimer* that post-date the dataset).
 5. **Evaluation** — retrieval metrics (Recall@5, Recall@10, MRR), a local RAGAS pass (Qwen2.5-7B-Instruct judge, 4-bit) for faithfulness / answer relevancy / context precision, and a custom keyword-overlap faithfulness fallback for when the local judge is unreliable.
 
-## Public interface
-
-```python
-run_query(query: str) -> dict
-# {"answer": str, "retrieved_titles": list[str]}
-```
-
-Wraps the full pipeline behind a single safe entrypoint — handles empty input, nonsense queries, non-English input, and unanswerable queries without raising.
 
 ## Ablations
 
