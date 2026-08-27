@@ -1,0 +1,12 @@
+.DS_Store
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Kaggle dataset / large local artifacts (not meant to be committed)
+movies_metadata.csv
+credits.csv
+*.faiss
